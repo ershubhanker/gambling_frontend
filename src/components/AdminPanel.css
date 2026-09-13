@@ -1,0 +1,519 @@
+/* ============================================
+   ADMIN PANEL
+   ============================================ */
+
+/* Container */
+.welcome-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+  }
+  
+  .welcome-card h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.35rem;
+    color: #111827;
+  }
+  
+  .welcome-card > p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0 0 16px 0;
+  }
+  
+  /* ============================================
+     FORM
+     ============================================ */
+  
+  .admin-form {
+    margin-top: 16px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b5563;
+  }
+  
+  .form-group input {
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+  
+  .required-mark {
+    color: #dc2626;
+    font-weight: 700;
+  }
+  
+  .optional-mark {
+    color: #9ca3af;
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
+  
+  .checkbox-group {
+    margin: 12px 0 16px 0;
+  }
+  
+  .checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background: #4f46e5;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    background: #4338ca;
+  }
+  
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* ============================================
+     USERS SECTION
+     ============================================ */
+  
+  .users-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .users-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  
+  .users-section-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #111827;
+  }
+  
+  /* Search bar */
+  .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    pointer-events: none;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 9px 40px 9px 36px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+  
+  .search-clear {
+    position: absolute;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: #e5e7eb;
+    color: #4b5563;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-clear:hover {
+    background: #d1d5db;
+  }
+  
+  /* ============================================
+     USERS TABLE
+     ============================================ */
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+  
+  .users-table thead {
+    background: #f9fafb;
+  }
+  
+  .users-table th {
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 700;
+    color: #374151;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+  }
+  
+  .users-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #1f2937;
+    vertical-align: middle;
+  }
+  
+  .users-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .users-table tr:hover {
+    background: #fafafa;
+  }
+  
+  .muted {
+    color: #9ca3af;
+  }
+  
+  .balance-inline {
+    font-weight: 700;
+    color: #059669;
+  }
+  
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  .badge-admin {
+    background: #ede9fe;
+    color: #5b21b6;
+  }
+  
+  .badge-user {
+    background: #e0e7ff;
+    color: #3730a3;
+  }
+  
+  .badge-active {
+    background: #d1fae5;
+    color: #065f46;
+  }
+  
+  .badge-inactive {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  
+  /* Action buttons */
+  .actions-cell {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  
+  .btn-small {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+  
+  .btn-small:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+  
+  .btn-small:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .btn-success {
+    background: #10b981;
+    color: #ffffff;
+  }
+  
+  .btn-secondary {
+    background: #6b7280;
+    color: #ffffff;
+  }
+  
+  .btn-danger {
+    background: #ef4444;
+    color: #ffffff;
+  }
+  
+  /* Messages */
+  .error-message,
+  .success-message {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .error-message {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  
+  .success-message {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+  
+  .empty-state {
+    text-align: center;
+    color: #9ca3af;
+    padding: 30px 20px;
+    font-style: italic;
+  }
+  
+  /* ============================================
+     RESPONSIVE — MOBILE
+     ============================================ */
+  
+  @media (max-width: 768px) {
+    .welcome-card,
+    .users-section {
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+  
+    .welcome-card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+  
+    .welcome-card > p {
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+  
+    /* Stack form rows */
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .form-group {
+      gap: 4px;
+    }
+  
+    .form-group label {
+      font-size: 0.75rem;
+    }
+  
+    .form-group input {
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+  
+    .checkbox-group {
+      margin: 10px 0 12px 0;
+    }
+  
+    .checkbox-group label {
+      font-size: 0.8rem;
+    }
+  
+    .btn-primary {
+      padding: 9px 16px;
+      font-size: 0.85rem;
+      width: 100%;
+    }
+  
+    /* Users section */
+    .users-section-header h3 {
+      font-size: 0.95rem;
+    }
+  
+    .search-input {
+      padding: 8px 36px 8px 34px;
+      font-size: 0.85rem;
+    }
+  
+    /* === TABLE → CARD LAYOUT ON MOBILE === */
+    .users-table,
+    .users-table thead,
+    .users-table tbody,
+    .users-table tr,
+    .users-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .users-table thead {
+      display: none;
+    }
+  
+    .users-table tr {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+  
+    .users-table tr:hover {
+      background: #ffffff;
+    }
+  
+    .users-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px dashed #f3f4f6;
+      font-size: 0.82rem;
+      text-align: right;
+    }
+  
+    .users-table td:last-child {
+      border-bottom: none;
+      padding-top: 10px;
+      margin-top: 6px;
+      border-top: 1px solid #f3f4f6;
+      justify-content: flex-end;
+    }
+  
+    /* Show label from data-label */
+    .users-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: #6b7280;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      text-align: left;
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+  
+    /* Actions row does not need a label */
+    .users-table td.actions-cell::before {
+      content: '';
+      display: none;
+    }
+  
+    .actions-cell {
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  
+    .btn-small {
+      padding: 5px 8px;
+      font-size: 0.7rem;
+    }
+  
+    .badge {
+      font-size: 0.65rem;
+      padding: 2px 7px;
+    }
+  }
+  
+  /* ============================================
+     EXTRA SMALL SCREENS
+     ============================================ */
+  @media (max-width: 400px) {
+    .welcome-card,
+    .users-section {
+      padding: 12px;
+    }
+  
+    .btn-primary {
+      font-size: 0.8rem;
+      padding: 8px 14px;
+    }
+  
+    .btn-small {
+      padding: 4px 7px;
+      font-size: 0.68rem;
+    }
+  
+    .users-table td {
+      font-size: 0.78rem;
+      padding: 5px 0;
+    }
+  
+    .users-table td::before {
+      font-size: 0.68rem;
+    }
+  }

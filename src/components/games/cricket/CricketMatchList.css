@@ -1,0 +1,205 @@
+/* ============================================
+   MATCH LIST — Full-width, aligned grid
+   ============================================ */
+
+   .match-list-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  /* ---------- HEADER ROW ---------- */
+  .match-list-header {
+    display: grid;
+    /* Match the exact same columns as .match-row */
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    background: #cbd2d9;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #374151;
+    border-bottom: 1px solid #9ca3af;
+    /* Fixed height so header + rows align visually */
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .match-list-header .header-game,
+  .match-list-header .header-col {
+    padding: 10px 12px;
+    border-right: 1px solid #b0b7bf;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .match-list-header .header-game {
+    text-align: left;
+  }
+  
+  .match-list-header .header-col:last-child {
+    border-right: none;
+  }
+  
+  /* ---------- SCROLLABLE BODY ---------- */
+  .match-list-body {
+    flex: 1;
+    overflow-y: auto;
+    background: #ffffff;
+  }
+  
+  /* ---------- MATCH ROW ---------- */
+  .match-row {
+    display: grid;
+    /* EXACT same columns as the header */
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    border-bottom: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: background 0.1s;
+    min-height: 64px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .match-row:hover {
+    background: #f0f8ff;
+  }
+  
+  /* ---------- GAME INFO CELL ---------- */
+  .match-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 12px;
+    border-right: 1px solid #e5e7eb;
+    min-width: 0; /* allows text-overflow to work */
+    box-sizing: border-box;
+  }
+  
+  .match-teams-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+    min-width: 0;
+  }
+  
+  .match-teams {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  
+  .live-badge {
+    background: #dc2626;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    animation: pulseLive 1.8s infinite;
+    flex-shrink: 0;
+  }
+  
+  @keyframes pulseLive {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  
+  .match-date {
+    font-size: 0.75rem;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* ---------- ODDS CELLS ---------- */
+  .match-odds {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3px;
+    padding: 6px 6px;
+    border-right: 1px solid #e5e7eb;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .match-odds:last-child {
+    border-right: none;
+  }
+  
+  .odds-btn {
+    text-align: center;
+    padding: 4px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  
+  .odds-btn.back {
+    background: #cce5ff;
+    color: #004085;
+  }
+  
+  .odds-btn.lay {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  /* ---------- LOADING / EMPTY ---------- */
+  .loading-state,
+  .empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+  }
+  
+  /* ============================================
+     RESPONSIVE (MOBILE)
+     ============================================ */
+  @media (max-width: 640px) {
+    .match-list-header,
+    .match-row {
+      /* On mobile: game info takes slightly more, odds shrink */
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+  
+    .match-info {
+      padding: 8px 10px;
+    }
+  
+    .match-teams {
+      font-size: 0.8rem;
+    }
+  
+    .match-date {
+      font-size: 0.7rem;
+    }
+  
+    .odds-btn {
+      font-size: 0.72rem;
+      padding: 3px 0;
+    }
+  
+    .match-list-header {
+      font-size: 0.78rem;
+    }
+  
+    .match-list-header .header-game,
+    .match-list-header .header-col {
+      padding: 8px 6px;
+    }
+  }

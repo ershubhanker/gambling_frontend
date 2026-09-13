@@ -1,0 +1,838 @@
+/* ============================================
+   Cricket Match Detail — Exchange Layout
+   ============================================ */
+
+   .cmd-page {
+    background: #d9d9d9;
+    min-height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 0.85rem;
+  }
+  
+  /* ---------- Top Bar ---------- */
+  .cmd-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #3e5c76;
+    color: #ffffff;
+    padding: 10px 14px;
+    border-bottom: 2px solid #2c4a63;
+  }
+  
+  .cmd-back {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .cmd-back:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .cmd-topbar-title {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  
+  .cmd-topbar-teams {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+  }
+  
+  .cmd-topbar-date {
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+  
+  .cmd-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .cmd-status.status-live {
+    background: #dc2626;
+    color: #ffffff;
+    animation: pulseLive 1.8s infinite;
+  }
+  
+  .cmd-status.status-upcoming {
+    background: #f0b90b;
+    color: #111827;
+  }
+  
+  .cmd-status.status-completed {
+    background: #6b7280;
+    color: #ffffff;
+  }
+  
+  @keyframes pulseLive {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  
+  /* ---------- Layout: markets + slip ---------- */
+  .cmd-layout {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: start;
+  }
+  
+  .cmd-markets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+  
+  /* ============================================
+     MATCH ODDS / TOSS / ODD-EVEN LADDER SECTIONS
+     ============================================ */
+  
+  .cmd-market {
+    background: #ffffff;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .cmd-market-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f5c842;
+    padding: 8px 12px;
+    border-bottom: 1px solid #d1a92f;
+    color: #111827;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  
+  .cmd-market-title {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .cmd-market-sub {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #4b5563;
+  }
+  
+  .cmd-market-info {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: #4b5563;
+    cursor: help;
+  }
+  
+  .cmd-market-limits {
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: #4b5563;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+  
+  .cmd-market-body {
+    background: #ffffff;
+  }
+  
+  /* Column labels */
+  .cmd-col-labels {
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr;
+    background: #f0f0f0;
+    border-bottom: 1px solid #d1d5db;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #374151;
+    letter-spacing: 0.5px;
+  }
+  
+  .cmd-col-label-left {
+    padding: 6px 10px;
+  }
+  
+  .cmd-col-label {
+    text-align: center;
+    padding: 6px 4px;
+    border-left: 1px solid #d1d5db;
+  }
+  
+  .cmd-col-label.back {
+    background: #cce5ff;
+    color: #004085;
+  }
+  
+  .cmd-col-label.lay {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  /* Runner row */
+  .cmd-runner {
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr;
+    border-bottom: 1px solid #e5e7eb;
+    min-height: 48px;
+  }
+  
+  .cmd-runner:last-child {
+    border-bottom: none;
+  }
+  
+  .cmd-runner-name {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #111827;
+    background: #fafafa;
+    border-right: 1px solid #e5e7eb;
+    font-size: 0.85rem;
+  }
+  
+  .cmd-ladder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 3px;
+    border-right: 1px solid #e5e7eb;
+  }
+  
+  .cmd-ladder:last-child {
+    border-right: none;
+  }
+  
+  /* Odd cells */
+  .cmd-odd-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.1s;
+    user-select: none;
+    min-width: 0;
+  }
+  
+  .cmd-odd-cell.back {
+    background: #cce5ff;
+    color: #004085;
+  }
+  
+  .cmd-odd-cell.back:hover {
+    background: #a8d3ff;
+  }
+  
+  .cmd-odd-cell.lay {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  .cmd-odd-cell.lay:hover {
+    background: #f1b8bd;
+  }
+  
+  .cmd-odd-cell.empty {
+    background: #f3f4f6;
+    color: #9ca3af;
+    cursor: default;
+  }
+  
+  .cmd-odd-price {
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+  
+  .cmd-odd-vol {
+    font-size: 0.65rem;
+    opacity: 0.75;
+    line-height: 1.2;
+  }
+  
+  /* ============================================
+     FANCY SECTION
+     ============================================ */
+  
+  .cmd-fancy-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  /* Tabs */
+  .cmd-fancy-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    background: #2c6e49;
+  }
+  
+  .cmd-fancy-tab {
+    flex: 1;
+    min-width: 90px;
+    padding: 10px 12px;
+    background: #2c6e49;
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.12s;
+  }
+  
+  .cmd-fancy-tab:last-child {
+    border-right: none;
+  }
+  
+  .cmd-fancy-tab:hover {
+    background: #3a8a5f;
+  }
+  
+  .cmd-fancy-tab.active {
+    background: #f5c842;
+    color: #111827;
+  }
+  
+  /* Fancy table */
+  .cmd-fancy-table {
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .cmd-fancy-table:first-child {
+    border-top: none;
+  }
+  
+  .cmd-fancy-table-header {
+    background: #f5c842;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid #d1a92f;
+  }
+  
+  .cmd-fancy-table-info {
+    font-weight: 400;
+    cursor: help;
+  }
+  
+  .cmd-fancy-table-cols {
+    display: grid;
+    grid-template-columns: 2.2fr 1.4fr 1.4fr 1.2fr;
+    background: #f0f0f0;
+    border-bottom: 1px solid #d1d5db;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #374151;
+    letter-spacing: 0.3px;
+  }
+  
+  .cmd-fancy-col-title {
+    padding: 6px 10px;
+  }
+  
+  .cmd-fancy-col-head {
+    text-align: center;
+    padding: 6px 4px;
+    border-left: 1px solid #d1d5db;
+  }
+  
+  .cmd-fancy-col-head.no {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  .cmd-fancy-col-head.yes {
+    background: #cce5ff;
+    color: #004085;
+  }
+  
+  .cmd-fancy-col-limits {
+    text-align: center;
+    padding: 6px 4px;
+    border-left: 1px solid #d1d5db;
+    font-size: 0.62rem;
+  }
+  
+  /* Fancy row */
+  .cmd-fancy-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1.4fr 1.4fr 1.2fr;
+    align-items: stretch;
+    border-bottom: 1px solid #e5e7eb;
+    min-height: 44px;
+  }
+  
+  .cmd-fancy-row:last-child {
+    border-bottom: none;
+  }
+  
+  .cmd-fancy-row-title {
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #111827;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #e5e7eb;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .cmd-fancy-odd-cell {
+    padding: 3px;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+  }
+  
+  .cmd-fancy-odd-cell:last-of-type {
+    border-right: none;
+  }
+  
+  .cmd-fancy-odd-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 2px;
+    font-weight: 700;
+    transition: background 0.1s;
+    min-width: 0;
+  }
+  
+  .cmd-fancy-odd-cell.no .cmd-fancy-odd-btn {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  .cmd-fancy-odd-cell.no .cmd-fancy-odd-btn:hover:not(:disabled) {
+    background: #f1b8bd;
+  }
+  
+  .cmd-fancy-odd-cell.yes .cmd-fancy-odd-btn {
+    background: #cce5ff;
+    color: #004085;
+  }
+  
+  .cmd-fancy-odd-cell.yes .cmd-fancy-odd-btn:hover:not(:disabled) {
+    background: #a8d3ff;
+  }
+  
+  .cmd-fancy-odd-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  
+  .cmd-fancy-price {
+    font-size: 0.85rem;
+    line-height: 1.1;
+  }
+  
+  .cmd-fancy-vol {
+    font-size: 0.62rem;
+    opacity: 0.75;
+    line-height: 1.1;
+  }
+  
+  .cmd-fancy-suspended {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+    color: #6b7280;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 2px;
+    padding: 4px;
+    text-align: center;
+  }
+  
+  .cmd-fancy-row-limits {
+    font-size: 0.6rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .cmd-fancy-empty {
+    padding: 24px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+  
+  /* ============================================
+     PLACE BET SLIP
+     ============================================ */
+  
+  .cmd-slip {
+    background: #ffffff;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    position: sticky;
+    top: 10px;
+    box-sizing: border-box;
+  }
+  
+  .cmd-slip-header {
+    background: #3e5c76;
+    color: #ffffff;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .cmd-slip-body {
+    padding: 10px;
+  }
+  
+  .cmd-slip-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 4px;
+    align-items: center;
+  }
+  
+  .cmd-slip-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #4b5563;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  .cmd-slip-label:first-child {
+    text-align: left;
+  }
+  
+  .cmd-slip-selection {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8d7da;
+    padding: 6px 8px;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #721c24;
+    min-height: 32px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .cmd-slip-empty {
+    color: #9ca3af;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .cmd-slip-remove {
+    background: transparent;
+    border: none;
+    color: #721c24;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .cmd-slip-input {
+    width: 100%;
+    padding: 6px 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: 600;
+  }
+  
+  .cmd-slip-input:focus {
+    outline: none;
+    border-color: #3e5c76;
+  }
+  
+  .cmd-quick-stakes {
+    display: flex;
+    gap: 3px;
+    margin-top: 4px;
+  }
+  
+  .cmd-quick-btn {
+    flex: 1;
+    padding: 5px 0;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 2px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #374151;
+    transition: background 0.1s;
+  }
+  
+  .cmd-quick-btn:hover:not(:disabled) {
+    background: #e5e7eb;
+  }
+  
+  .cmd-slip-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  
+  .cmd-btn {
+    flex: 1;
+    padding: 7px 6px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: filter 0.1s;
+  }
+  
+  .cmd-btn:hover:not(:disabled) {
+    filter: brightness(0.95);
+  }
+  
+  .cmd-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  
+  .cmd-btn.edit {
+    background: #10b981;
+    color: #ffffff;
+  }
+  
+  .cmd-btn.clear {
+    background: #ef4444;
+    color: #ffffff;
+  }
+  
+  .cmd-btn.reset {
+    background: #f59e0b;
+    color: #ffffff;
+  }
+  
+  .cmd-btn.submit {
+    background: #16a34a;
+    color: #ffffff;
+  }
+  
+  .cmd-message {
+    padding: 6px 8px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .cmd-message.success {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+  
+  .cmd-message.error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  
+  /* ---------- My Bet Section ---------- */
+  .cmd-my-bet {
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .cmd-my-bet-header {
+    background: #10b981;
+    color: #ffffff;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* ---------- Loading / Error ---------- */
+  .cmd-loading,
+  .cmd-error {
+    padding: 40px 20px;
+    text-align: center;
+    color: #4b5563;
+    font-weight: 600;
+  }
+  
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  
+  @media (max-width: 900px) {
+    .cmd-layout {
+      grid-template-columns: 1fr;
+    }
+  
+    .cmd-slip {
+      position: static;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .cmd-topbar {
+      padding: 8px 10px;
+      flex-wrap: wrap;
+    }
+  
+    .cmd-topbar-teams {
+      font-size: 0.85rem;
+    }
+  
+    .cmd-topbar-date {
+      font-size: 0.7rem;
+    }
+  
+    .cmd-layout {
+      padding: 6px;
+      gap: 6px;
+    }
+  
+    /* Match odds ladders compress */
+    .cmd-runner,
+    .cmd-col-labels {
+      grid-template-columns: 1.4fr 2fr 2fr;
+    }
+  
+    .cmd-runner-name {
+      font-size: 0.75rem;
+      padding: 8px 6px;
+    }
+  
+    .cmd-odd-price {
+      font-size: 0.75rem;
+    }
+  
+    .cmd-odd-vol {
+      font-size: 0.6rem;
+    }
+  
+    /* Fancy tabs — horizontal scroll on mobile */
+    .cmd-fancy-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .cmd-fancy-tab {
+      flex: 0 0 auto;
+      min-width: 90px;
+      font-size: 0.68rem;
+      padding: 8px 10px;
+    }
+  
+    /* Fancy table — tighter columns */
+    .cmd-fancy-table-cols,
+    .cmd-fancy-row {
+      grid-template-columns: 1.9fr 1.2fr 1.2fr 1.1fr;
+    }
+  
+    .cmd-fancy-row-title {
+      font-size: 0.72rem;
+      padding: 6px 8px;
+      white-space: normal;
+    }
+  
+    .cmd-fancy-price {
+      font-size: 0.75rem;
+    }
+  
+    .cmd-fancy-vol {
+      font-size: 0.58rem;
+    }
+  
+    .cmd-fancy-row-limits {
+      font-size: 0.55rem;
+    }
+  
+    .cmd-fancy-col-head,
+    .cmd-fancy-col-title,
+    .cmd-fancy-col-limits {
+      font-size: 0.6rem;
+      padding: 5px 2px;
+    }
+  
+    /* Slip */
+    .cmd-slip-row {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 3px;
+    }
+  
+    .cmd-quick-btn {
+      font-size: 0.6rem;
+    }
+  }
